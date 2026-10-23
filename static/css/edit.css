@@ -1,0 +1,495 @@
+
+/* =========================================
+   EDIT STUDENT PAGE
+   Compact, responsive admin dashboard style
+   ========================================= */
+
+.edit-page {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 28px 50px 40px;
+    color: #172033;
+}
+
+.edit-page *,
+.edit-page *::before,
+.edit-page *::after {
+    box-sizing: border-box;
+}
+
+/* ---------- Page Header ---------- */
+
+.edit-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.edit-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.11em;
+}
+
+.edit-eyebrow i {
+    color: #4f46e5;
+    font-size: 13px;
+}
+
+.edit-page-header h1 {
+    margin: 0;
+    color: #111827;
+    font-size: clamp(25px, 2.3vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.edit-page-header p {
+    margin: 7px 0 0;
+    color: #778196;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ---------- Back Button ---------- */
+
+.edit-back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+    padding: 9px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.edit-back-link:hover {
+    border-color: #c7d2fe;
+    background: #f8faff;
+    color: #4338ca;
+}
+
+/* ---------- Main Form ---------- */
+
+.edit-form {
+    display: grid;
+    width: 100%;
+    gap: 16px;
+}
+
+/* ---------- Form Cards ---------- */
+
+.edit-card {
+    width: 100%;
+    min-width: 0;
+    padding: 22px 24px;
+    border: 1px solid #e9edf4;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.035);
+}
+
+/* ---------- Section Heading ---------- */
+
+.edit-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 16px;
+    margin-bottom: 19px;
+    border-bottom: 1px solid #eef1f6;
+}
+
+.edit-section-icon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    border-radius: 12px;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 18px;
+}
+
+.edit-card-heading h2 {
+    margin: 0;
+    color: #1e293b;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.edit-card-heading p {
+    margin: 4px 0 0;
+    color: #8791a3;
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+/* ---------- Two-Column Form Grid ---------- */
+
+.edit-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 20px;
+}
+
+.edit-field {
+    width: 100%;
+    min-width: 0;
+}
+
+.edit-field-full {
+    grid-column: 1 / -1;
+}
+
+/* ---------- Labels ---------- */
+
+.edit-field .form-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #39465a;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.edit-field .form-label span {
+    color: #e05260;
+}
+
+/* ---------- Input Icons ---------- */
+
+.edit-input-wrap {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+.edit-input-wrap > i {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 12px;
+    color: #9aa4b5;
+    font-size: 14px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* ---------- Text Inputs and Selects ---------- */
+
+.edit-input-wrap .form-control,
+.edit-input-wrap .form-select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 43px;
+    padding: 10px 12px 10px 36px;
+    border: 1px solid #e1e6ef;
+    border-radius: 9px;
+    background-color: #fbfcfe;
+    color: #253147;
+    font-family: inherit;
+    font-size: 12px;
+    box-shadow: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.edit-input-wrap .form-select {
+    padding-right: 30px;
+}
+
+.edit-input-wrap .form-control::placeholder {
+    color: #a0a9b8;
+    opacity: 1;
+}
+
+/* Focus state */
+
+.edit-input-wrap .form-control:focus,
+.edit-input-wrap .form-select:focus,
+.edit-address:focus {
+    border-color: #818cf8;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    outline: none;
+}
+
+/* ---------- Address Textarea ---------- */
+
+.edit-address {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 88px;
+    padding: 11px 12px;
+    border: 1px solid #e1e6ef;
+    border-radius: 9px;
+    background: #fbfcfe;
+    color: #253147;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.6;
+    box-shadow: none;
+    resize: vertical;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.edit-address::placeholder {
+    color: #a0a9b8;
+}
+
+/* ---------- Photo Upload ---------- */
+
+.edit-photo-dropzone {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 155px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    border: 1.5px dashed #cbd5e1;
+    border-radius: 12px;
+    background: #fafbff;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.edit-photo-dropzone:hover,
+.edit-photo-dropzone.has-file {
+    border-color: #818cf8;
+    background: #f5f6ff;
+}
+
+.edit-photo-icon {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    margin-bottom: 10px;
+    border-radius: 13px;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 21px;
+}
+
+.edit-photo-title {
+    max-width: 100%;
+    color: #273449;
+    font-size: 12px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.edit-photo-hint {
+    margin-top: 6px;
+    color: #8791a3;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* Hide native input while keeping it accessible by clicking the label */
+
+.edit-photo-dropzone input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.edit-photo-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 8px 11px;
+    border: 1px solid #dbe2f0;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #4f46e5;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+/* ---------- Bottom Action Buttons ---------- */
+
+.edit-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 1px;
+}
+
+.edit-cancel-button,
+.edit-save-button {
+    display: inline-flex;
+    min-height: 41px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 15px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 750;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.edit-cancel-button {
+    border: 1px solid #e0e6ef;
+    background: #ffffff;
+    color: #586579;
+}
+
+.edit-cancel-button:hover {
+    background: #f8fafc;
+    color: #334155;
+}
+
+.edit-save-button {
+    border: 1px solid #4f46e5;
+    background: #4f46e5;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.15);
+}
+
+.edit-save-button:hover {
+    border-color: #4338ca;
+    background: #4338ca;
+    color: #ffffff;
+}
+
+.edit-save-button:focus-visible,
+.edit-cancel-button:focus-visible,
+.edit-back-link:focus-visible {
+    outline: 3px solid rgba(99, 102, 241, 0.3);
+    outline-offset: 2px;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 900px) {
+    .edit-page {
+        padding: 24px 20px 32px;
+    }
+
+    .edit-card {
+        padding: 20px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 620px) {
+    .edit-page {
+        width: 100%;
+        padding: 20px 13px 28px;
+    }
+
+    .edit-page-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .edit-back-link {
+        align-self: flex-start;
+    }
+
+    .edit-page-header h1 {
+        font-size: 25px;
+    }
+
+    .edit-fields-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .edit-field-full {
+        grid-column: auto;
+    }
+
+    .edit-card {
+        padding: 17px 15px;
+        border-radius: 13px;
+    }
+
+    .edit-card-heading {
+        padding-bottom: 14px;
+        margin-bottom: 16px;
+    }
+
+    .edit-photo-dropzone {
+        min-height: 145px;
+        padding: 16px 12px;
+    }
+
+    .edit-form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .edit-cancel-button,
+    .edit-save-button {
+        width: 100%;
+        min-height: 43px;
+    }
+}
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width: 380px) {
+    .edit-page {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .edit-card {
+        padding: 15px 12px;
+    }
+
+    .edit-card-heading h2 {
+        font-size: 14px;
+    }
+
+    .edit-card-heading p {
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,40 @@
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Private student database
+students.db
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploaded student photos and generated QR codes
+static/uploads/*
+!static/uploads/.gitkeep
+
+# Generated reports and exports
+*.pdf
+*.xlsx
+*.csv
+
+# Logs
+*.log
+
+project_info.txt

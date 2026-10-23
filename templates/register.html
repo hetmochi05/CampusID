@@ -1,0 +1,430 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register Student | Student ID System</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Shared Admin CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Registration Page CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+
+<body>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-brand">
+            <div class="brand-icon">
+                <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            Student ID System
+        </div>
+
+        <button class="mobile-menu" type="button"
+                onclick="toggleSidebar()"
+                aria-label="Toggle navigation">
+            <i class="bi bi-list"></i>
+        </button>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-mortarboard-fill"></i>
+            </div>
+
+            <div class="brand-text">
+                <h5>Student ID System</h5>
+                <span>Administration</span>
+            </div>
+        </div>
+
+        <div class="nav-title">Main Menu</div>
+
+        <nav class="sidebar-nav">
+            <a href="/admin" class="sidebar-link">
+                <i class="bi bi-grid-1x2-fill"></i>
+                Dashboard
+            </a>
+
+            <a href="/register" class="sidebar-link active">
+                <i class="bi bi-person-plus-fill"></i>
+                Register Student
+            </a>
+
+            <a href="/bulk-upload" class="sidebar-link">
+                <i class="bi bi-cloud-arrow-up-fill"></i>
+                Bulk Upload
+            </a>
+        </nav>
+
+        <div class="nav-title">Export</div>
+
+        <nav class="sidebar-nav">
+            <a href="/export/excel" class="sidebar-link">
+                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                Export Excel
+            </a>
+
+            <a href="/export/pdf" class="sidebar-link">
+                <i class="bi bi-file-earmark-pdf-fill"></i>
+                Export PDF
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <nav class="sidebar-nav">
+                <a href="/logout" class="sidebar-link logout-link">
+                    <i class="bi bi-box-arrow-right"></i>
+                    Logout
+                </a>
+            </nav>
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content register-page">
+
+        <!-- Page Heading -->
+        <div class="register-page-header">
+
+            <div>
+                <a href="/admin" class="register-back-link">
+                    <i class="bi bi-arrow-left"></i>
+                    Back to Dashboard
+                </a>
+
+                <div class="register-heading">
+                    <div class="register-heading-icon">
+                        <i class="bi bi-person-vcard-fill"></i>
+                    </div>
+
+                    <div>
+                        <h1>Register Student</h1>
+                        <p>Add a new student to your student ID management system.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="register-header-badge">
+                <i class="bi bi-shield-check"></i>
+                Student Enrollment
+            </div>
+
+        </div>
+
+        <!-- Registration Form Card -->
+        <section class="register-card">
+
+            <div class="register-card-header">
+                <div>
+                    <h2>Student Information</h2>
+                    <p>Enter the student's details in the fields below.</p>
+                </div>
+
+                <span class="required-note">
+                    <span>*</span> Required fields
+                </span>
+            </div>
+
+            <form method="POST"
+                  enctype="multipart/form-data"
+                  class="register-form">
+
+                <!-- Personal Details -->
+                <div class="form-section-heading">
+                    <span class="form-section-icon">
+                        <i class="bi bi-person-fill"></i>
+                    </span>
+
+                    <div>
+                        <h3>Personal Details</h3>
+                        <p>Basic student information</p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+
+                    <!-- Full Name -->
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">
+                            Full Name <span>*</span>
+                        </label>
+
+                        <div class="register-input-wrap">
+                            <i class="bi bi-person"></i>
+
+                            <input type="text"
+                                   id="name"
+                                   name="name"
+                                   class="form-control"
+                                   placeholder="Enter full name"
+                                   autocomplete="name"
+                                   required>
+                        </div>
+                    </div>
+
+                    <!-- Course -->
+                    <div class="col-md-6">
+                        <label for="course" class="form-label">
+                            Course <span>*</span>
+                        </label>
+
+                        <div class="register-input-wrap">
+                            <i class="bi bi-mortarboard"></i>
+
+                            <select id="course"
+                                    name="course"
+                                    class="form-select"
+                                    required>
+                                <option value="">Select course</option>
+                                <option value="BCA">BCA</option>
+                                <option value="MCA">MCA</option>
+                                <option value="MBA">MBA</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="col-md-6">
+                        <label for="dob" class="form-label">
+                            Date of Birth <span>*</span>
+                        </label>
+
+                        <div class="register-input-wrap">
+                            <i class="bi bi-calendar-event"></i>
+
+                            <input type="date"
+                                   id="dob"
+                                   name="dob"
+                                   class="form-control"
+                                   required>
+                        </div>
+                    </div>
+
+                    <!-- Contact Number -->
+                    <div class="col-md-6">
+                        <label for="contact" class="form-label">
+                            Contact Number <span>*</span>
+                        </label>
+
+                        <div class="register-input-wrap">
+                            <i class="bi bi-telephone"></i>
+
+                            <input type="tel"
+                                   id="contact"
+                                   name="contact"
+                                   class="form-control"
+                                   placeholder="Enter contact number"
+                                   autocomplete="tel"
+                                   required>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">
+                            Email Address <span>*</span>
+                        </label>
+
+                        <div class="register-input-wrap">
+                            <i class="bi bi-envelope"></i>
+
+                            <input type="email"
+                                   id="email"
+                                   name="email"
+                                   class="form-control"
+                                   placeholder="student@example.com"
+                                   autocomplete="email"
+                                   required>
+                        </div>
+                    </div>
+
+                    <!-- Blood Group -->
+                    <div class="col-md-6">
+                        <label for="blood_group" class="form-label">
+                            Blood Group <span>*</span>
+                        </label>
+
+                        <div class="register-input-wrap">
+                            <i class="bi bi-droplet"></i>
+
+                            <select id="blood_group"
+                                    name="blood_group"
+                                    class="form-select"
+                                    required>
+                                <option value="">Select blood group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="col-12">
+                        <label for="address" class="form-label">
+                            Residential Address <span>*</span>
+                        </label>
+
+                        <div class="register-input-wrap register-textarea-wrap">
+                            <i class="bi bi-geo-alt"></i>
+
+                            <textarea id="address"
+                                      name="address"
+                                      class="form-control"
+                                      rows="3"
+                                      placeholder="Enter complete residential address"
+                                      autocomplete="street-address"
+                                      required></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Photo Upload -->
+                <div class="form-section-heading photo-section-heading">
+                    <span class="form-section-icon">
+                        <i class="bi bi-camera-fill"></i>
+                    </span>
+
+                    <div>
+                        <h3>Student Photograph</h3>
+                        <p>Upload a photo for the student record and ID card.</p>
+                    </div>
+                </div>
+
+                <div class="photo-upload-box">
+                    <div class="photo-preview" id="photoPreview">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+
+                    <div class="photo-upload-content">
+                        <label for="photo" class="form-label">
+                            Upload Student Photo <span>*</span>
+                        </label>
+
+                        <p>Choose a clear photo of the student.</p>
+
+                        <input type="file"
+                               id="photo"
+                               name="photo"
+                               class="form-control"
+                               accept="image/*"
+                               aria-describedby="photoHelp"
+                               required>
+
+                        <div id="photoHelp" class="form-text">
+                            Image files only. Use a photo suitable for an ID card.
+                        </div>
+
+                        <div id="photoError" class="photo-error"
+                             role="alert" hidden></div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="register-form-footer">
+
+                    <p>
+                        <i class="bi bi-info-circle"></i>
+                        Please verify the details before submitting.
+                    </p>
+
+                    <div class="register-form-actions">
+                        <a href="/admin" class="register-cancel-btn">
+                            <i class="bi bi-x-lg"></i>
+                            Cancel
+                        </a>
+
+                        <button type="submit" class="register-submit-btn">
+                            <i class="bi bi-person-check-fill"></i>
+                            Register Student
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <footer class="register-footer">
+            Student ID System <span>·</span> Administration Portal
+        </footer>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+
+    <script>
+        // Student photo preview
+        const photoInput = document.getElementById("photo");
+        const photoPreview = document.getElementById("photoPreview");
+        const photoError = document.getElementById("photoError");
+
+        photoInput.addEventListener("change", function () {
+            photoError.hidden = true;
+            photoError.textContent = "";
+
+            const file = this.files && this.files[0];
+
+            if (!file) {
+                photoPreview.innerHTML =
+                    '<i class="bi bi-person-fill"></i>';
+                return;
+            }
+
+            if (!file.type.startsWith("image/")) {
+                this.value = "";
+                photoError.textContent =
+                    "Please select an image file.";
+                photoError.hidden = false;
+                photoPreview.innerHTML =
+                    '<i class="bi bi-person-fill"></i>';
+                return;
+            }
+
+            const imageUrl = URL.createObjectURL(file);
+
+            photoPreview.innerHTML = "";
+
+            const img = document.createElement("img");
+            img.src = imageUrl;
+            img.alt = "Selected student photo preview";
+
+            img.onload = function () {
+                URL.revokeObjectURL(imageUrl);
+            };
+
+            photoPreview.appendChild(img);
+        });
+    </script>
+
+</body>
+</html>
+```

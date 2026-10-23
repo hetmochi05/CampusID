@@ -1,0 +1,451 @@
+.view-student-page {
+    padding: 28px 30px 42px;
+}
+
+.details-page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 22px;
+    margin-bottom: 24px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #667085;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.back-link:hover {
+    color: #4f46e5;
+}
+
+.details-page-header .page-title h1 {
+    margin: 0 0 7px;
+    color: #172033;
+    font-size: clamp(24px, 2.2vw, 31px);
+    font-weight: 750;
+    letter-spacing: -.7px;
+}
+
+.details-page-header .page-title p {
+    margin: 0;
+    color: #7a8497;
+    font-size: 13px;
+}
+
+.details-header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.details-header-actions .header-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid #e2e7f0;
+    border-radius: 10px;
+    background: #fff;
+    padding: 11px 15px;
+    color: #344054;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 650;
+    box-shadow: 0 2px 5px rgba(16, 24, 40, .03);
+}
+
+.details-header-actions .header-btn.primary {
+    background: #4f46e5;
+    border-color: #4f46e5;
+    color: #fff;
+}
+
+.details-header-actions .header-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(16, 24, 40, .08);
+}
+
+.student-profile-card {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #e9edf4;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 10px 35px rgba(24, 39, 75, .055);
+}
+
+.profile-banner {
+    height: 118px;
+    background: linear-gradient(120deg, #3730a3 0%, #4f46e5 55%, #818cf8 100%);
+    position: relative;
+}
+
+.profile-banner:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .18;
+    background-image: radial-gradient(circle at 20% 25%, #fff 0 2px, transparent 3px), radial-gradient(circle at 80% 65%, #fff 0 2px, transparent 3px);
+    background-size: 38px 38px;
+}
+
+.profile-summary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 30px 25px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.profile-photo-wrap {
+    width: 108px;
+    height: 108px;
+    flex: 0 0 108px;
+    margin-top: -42px;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-photo {
+    width: 108px;
+    height: 108px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 5px solid #fff;
+    background: #f0f2f8;
+    box-shadow: 0 4px 16px rgba(16, 24, 40, .13);
+}
+
+.profile-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #667085;
+    font-size: 45px;
+}
+
+.profile-name-block {
+    flex: 1;
+    min-width: 0;
+    padding-top: 12px;
+}
+
+.eyebrow {
+    color: #6366f1;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.profile-name-block h2 {
+    margin: 5px 0 9px;
+    color: #172033;
+    font-size: 25px;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+.profile-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    color: #667085;
+    font-size: 12px;
+}
+
+.profile-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.profile-status {
+    align-self: center;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.status-pill>span {
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status-active {
+    color: #15803d;
+    background: #eaf9ef;
+}
+
+.status-inactive {
+    color: #b42318;
+    background: #fff0ee;
+}
+
+.profile-content {
+    padding: 28px 30px 22px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.section-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    color: #4f46e5;
+    background: #eef2ff;
+    font-size: 19px;
+}
+
+.section-heading h3 {
+    margin: 0 0 4px;
+    color: #202a3c;
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #8992a3;
+    font-size: 11px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.detail-item {
+    min-width: 0;
+    padding: 16px 17px;
+    border: 1px solid #edf0f5;
+    border-radius: 12px;
+    background: #fbfcfe;
+}
+
+.detail-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 9px;
+    color: #7b8495;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.detail-label i {
+    color: #6366f1;
+    font-size: 14px;
+}
+
+.detail-item strong {
+    display: block;
+    color: #263246;
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.detail-id {
+    color: #4f46e5 !important;
+    letter-spacing: .3px;
+}
+
+.detail-address {
+    grid-column: 1/-1;
+}
+
+.profile-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #edf0f5;
+}
+
+.profile-footer>span {
+    color: #8a93a3;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.profile-footer>span i {
+    color: #16a34a;
+    font-size: 15px;
+}
+
+.profile-footer>div {
+    display: flex;
+    gap: 8px;
+}
+
+.footer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 15px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.footer-btn.secondary {
+    border: 1px solid #e1e6ee;
+    color: #475467;
+    background: #fff;
+}
+
+.footer-btn.primary {
+    border: 1px solid #4f46e5;
+    color: #fff;
+    background: #4f46e5;
+}
+
+@media (max-width:900px) {
+    .view-student-page {
+        padding: 24px 20px 35px
+    }
+
+    .details-page-header {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .profile-summary {
+        padding-left: 22px;
+        padding-right: 22px
+    }
+
+    .profile-content {
+        padding: 24px 22px 20px
+    }
+}
+
+@media (max-width:600px) {
+    .view-student-page {
+        padding: 18px 13px 28px
+    }
+
+    .details-page-header .page-title h1 {
+        font-size: 25px
+    }
+
+    .details-header-actions {
+        width: 100%
+    }
+
+    .details-header-actions .header-btn {
+        flex: 1;
+        padding: 10px 8px;
+        font-size: 11px
+    }
+
+    .profile-banner {
+        height: 88px
+    }
+
+    .profile-summary {
+        align-items: flex-start;
+        gap: 12px;
+        padding: 0 15px 19px;
+        flex-wrap: wrap
+    }
+
+    .profile-photo-wrap,
+    .profile-photo {
+        width: 82px;
+        height: 82px
+    }
+
+    .profile-photo-wrap {
+        flex-basis: 82px;
+        margin-top: -30px
+    }
+
+    .profile-photo {
+        border-width: 4px;
+        border-radius: 14px
+    }
+
+    .profile-name-block {
+        padding-top: 7px;
+        flex: 1 1 calc(100% - 100px)
+    }
+
+    .profile-name-block h2 {
+        font-size: 20px
+    }
+
+    .profile-meta {
+        font-size: 11px;
+        gap: 6px 12px
+    }
+
+    .profile-status {
+        margin-left: 94px;
+        margin-top: -10px
+    }
+
+    .profile-content {
+        padding: 20px 15px 16px
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 10px
+    }
+
+    .detail-address {
+        grid-column: auto
+    }
+
+    .detail-item {
+        padding: 13px 14px
+    }
+
+    .profile-footer {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .profile-footer>div {
+        width: 100%
+    }
+
+    .footer-btn {
+        flex: 1
+    }
+}

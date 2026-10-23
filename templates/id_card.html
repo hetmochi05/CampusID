@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student ID Card</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 35px 18px;
+      background: #f1f4f9;
+      color: #172b49;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .page-header {
+      max-width: 1000px;
+      margin: 0 auto 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .page-header h1 {
+      margin: 0 0 7px;
+      font-size: 28px;
+    }
+
+    .page-header p {
+      margin: 0;
+      color: #75839a;
+      font-size: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 16px;
+      border: 0;
+      border-radius: 9px;
+      background: #214b7c;
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn.light {
+      background: white;
+      color: #214b7c;
+      border: 1px solid #dce4ef;
+    }
+
+    .cards-container {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .side-wrapper {
+      padding: 18px;
+      background: white;
+      border: 1px solid #e2e8f1;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px #1830500a;
+    }
+
+    .side-title {
+      margin: 0 0 13px;
+      color: #66758e;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .id-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 1.586 / 1;
+      min-height: 245px;
+      padding: 17px 19px;
+      border-radius: 12px;
+      color: white;
+      background: linear-gradient(125deg, #122b4c, #24558a 65%, #17385e);
+      box-shadow: 0 12px 25px #102b5030;
+    }
+
+    .id-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 260px;
+      height: 260px;
+      right: -125px;
+      top: -170px;
+      border: 1px solid #ffffff25;
+      border-radius: 50%;
+      box-shadow: 0 0 0 20px #ffffff08, 0 0 0 40px #ffffff08;
+    }
+
+    .id-card::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 200px;
+      height: 200px;
+      left: 30%;
+      bottom: -165px;
+      border: 1px solid #d7b66b50;
+      border-radius: 50%;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 11px;
+      border-bottom: 2px solid #d7b66b;
+    }
+
+    .school-icon {
+      width: 37px;
+      height: 37px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border: 1px solid #ffffff35;
+      border-radius: 9px;
+      color: #e5c878;
+      background: #ffffff12;
+      font-size: 21px;
+    }
+
+    .school-name {
+      min-width: 0;
+    }
+
+    .school-name h2 {
+      margin: 0;
+      font-size: clamp(10px, 1.3vw, 15px);
+      letter-spacing: 1px;
+    }
+
+    .school-name p {
+      margin: 4px 0 0;
+      color: #c4d1e2;
+      font-size: 7px;
+      letter-spacing: 1px;
+    }
+
+    .seal {
+      margin-left: auto;
+      color: #e5c878;
+      font-size: 22px;
+    }
+
+    .front-content {
+      display: grid;
+      grid-template-columns: 95px minmax(0, 1fr);
+      gap: 16px;
+      padding-top: 15px;
+    }
+
+    .photo-column {
+      text-align: center;
+    }
+
+    .photo {
+      width: 88px;
+      height: 100px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      margin: auto;
+      border: 3px solid white;
+      border-radius: 7px;
+      background: #e8edf5;
+      color: #8a9ab2;
+      font-size: 42px;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-label {
+      display: block;
+      margin-top: 5px;
+      color: #c4d1e2;
+      font-size: 7px;
+      letter-spacing: .8px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 4px 7px;
+      border: 1px solid #65d9a05c;
+      border-radius: 20px;
+      color: #aaf0ce;
+      background: #16835430;
+      font-size: 7px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 4px;
+      color: #bdcce0;
+      font-size: 7px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .student-name {
+      margin: 0 0 12px;
+      overflow-wrap: anywhere;
+      font-size: clamp(15px, 2vw, 22px);
+      line-height: 1.2;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 12px;
+    }
+
+    .info-item {
+      min-width: 0;
+    }
+
+    .info-item strong {
+      display: block;
+      overflow-wrap: anywhere;
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    .student-number {
+      color: #f0d58c;
+      font-size: 12px !important;
+    }
+
+    .card-footer {
+      position: absolute;
+      left: 19px;
+      right: 19px;
+      bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 10px;
+      padding-top: 7px;
+      border-top: 1px solid #ffffff30;
+    }
+
+    .footer-note {
+      color: #d4deeb;
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: .6px;
+    }
+
+    .signature {
+      width: 90px;
+      padding-top: 5px;
+      border-top: 1px solid #ffffffa0;
+      color: #d4deeb;
+      font-size: 6px;
+      text-align: center;
+      letter-spacing: .7px;
+    }
+
+    /* BACK SIDE */
+    .back-card {
+      background: linear-gradient(135deg, #18385e, #102744);
+    }
+
+    .back-banner {
+      margin: 13px 0 12px;
+      color: #f0d58c;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+    }
+
+    .back-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 85px;
+      gap: 13px;
+      align-items: start;
+    }
+
+    .back-details {
+      min-width: 0;
+    }
+
+    .back-row {
+      margin-bottom: 9px;
+    }
+
+    .back-row strong {
+      display: block;
+      overflow-wrap: anywhere;
+      font-size: 9px;
+      line-height: 1.35;
+    }
+
+    .qr-panel {
+      padding: 6px;
+      border-radius: 7px;
+      background: white;
+      color: #18385e;
+      text-align: center;
+    }
+
+    .qr-panel img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .qr-panel small {
+      display: block;
+      margin-top: 4px;
+      font-size: 7px;
+      font-weight: 800;
+    }
+
+    .instructions {
+      margin-top: 6px;
+      padding: 8px 10px;
+      border: 1px solid #ffffff20;
+      border-radius: 6px;
+      color: #d9e4f1;
+      background: #ffffff09;
+      font-size: 8px;
+      line-height: 1.5;
+    }
+
+    .instructions strong {
+      color: #f0d58c;
+    }
+
+    .back-footer {
+      position: absolute;
+      right: 19px;
+      bottom: 12px;
+      left: 19px;
+      padding-top: 7px;
+      border-top: 1px solid #ffffff30;
+      color: #d4deeb;
+      font-size: 7px;
+      text-align: center;
+      letter-spacing: .5px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 25px auto;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding: 22px 10px;
+      }
+
+      .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .cards-container {
+        grid-template-columns: 1fr;
+      }
+
+      .side-wrapper {
+        padding: 12px;
+      }
+
+      .id-card {
+        min-height: 0;
+      }
+
+      .school-name h2 {
+        font-size: 13px;
+      }
+
+      .student-name {
+        font-size: 20px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+
+      body {
+        padding: 0;
+        background: white;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .page-header,
+      .side-title,
+      .actions {
+        display: none !important;
+      }
+
+      .cards-container {
+        display: block;
+        margin: 0;
+      }
+
+      .side-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 297mm;
+        height: 210mm;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .side-wrapper:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+
+      .id-card {
+        width: 85.6mm;
+        height: 54mm;
+        min-height: 0;
+        aspect-ratio: auto;
+        padding: 3.2mm 3.5mm;
+        border-radius: 2mm;
+        box-shadow: none;
+      }
+
+      .card-header {
+        gap: 2mm;
+        padding-bottom: 2mm;
+      }
+
+      .school-icon {
+        width: 8mm;
+        height: 8mm;
+        font-size: 5mm;
+        border-radius: 1.5mm;
+      }
+
+      .school-name h2 {
+        font-size: 3mm;
+        letter-spacing: .2mm;
+      }
+
+      .school-name p {
+        font-size: 1.35mm;
+        margin-top: 1mm;
+      }
+
+      .seal {
+        font-size: 4mm;
+      }
+
+      .front-content {
+        grid-template-columns: 19mm minmax(0, 1fr);
+        gap: 2.5mm;
+        padding-top: 2.5mm;
+      }
+
+      .photo {
+        width: 17mm;
+        height: 20mm;
+        border-width: .5mm;
+        font-size: 8mm;
+      }
+
+      .photo-label {
+        font-size: 1.3mm;
+        margin-top: 1mm;
+      }
+
+      .status {
+        margin-top: 1mm;
+        padding: .6mm 1mm;
+        font-size: 1.3mm;
+      }
+
+      .label {
+        font-size: 1.45mm;
+        margin-bottom: .7mm;
+      }
+
+      .student-name {
+        font-size: 4.3mm;
+        margin-bottom: 2mm;
+      }
+
+      .info-grid {
+        gap: 2mm 2.5mm;
+      }
+
+      .info-item strong {
+        font-size: 2.2mm;
+      }
+
+      .student-number {
+        font-size: 2.5mm !important;
+      }
+
+      .card-footer {
+        left: 3.5mm;
+        right: 3.5mm;
+        bottom: 2mm;
+        padding-top: 1mm;
+      }
+
+      .footer-note {
+        font-size: 1.4mm;
+      }
+
+      .signature {
+        width: 20mm;
+        font-size: 1.2mm;
+      }
+
+      .back-banner {
+        margin: 2.2mm 0;
+        font-size: 2.6mm;
+      }
+
+      .back-content {
+        grid-template-columns: 1fr 18mm;
+        gap: 2mm;
+      }
+
+      .back-row {
+        margin-bottom: 1.5mm;
+      }
+
+      .back-row strong {
+        font-size: 2mm;
+      }
+
+      .qr-panel {
+        padding: 1mm;
+        border-radius: 1mm;
+      }
+
+      .qr-panel small {
+        font-size: 1.4mm;
+        margin-top: .5mm;
+      }
+
+      .instructions {
+        margin-top: 1mm;
+        padding: 1.3mm 1.5mm;
+        font-size: 1.7mm;
+      }
+
+      .back-footer {
+        right: 3.5mm;
+        bottom: 2mm;
+        left: 3.5mm;
+        padding-top: 1mm;
+        font-size: 1.4mm;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="page-header">
+    <div>
+      <h1>Student Identity Card</h1>
+      <p>Front and back preview of your digital student ID.</p>
+    </div>
+    <a class="btn light" href="/admin">
+      <i class="bi bi-arrow-left"></i> Back to Dashboard
+    </a>
+  </header>
+
+  <main class="cards-container">
+
+    <!-- FRONT SIDE -->
+    <section class="side-wrapper">
+      <h2 class="side-title">01 / FRONT SIDE</h2>
+
+      <article class="id-card">
+        <div class="card-header">
+          <div class="school-icon"><i class="bi bi-mortarboard-fill"></i></div>
+          <div class="school-name">
+            <h2>STUDENT IDENTITY CARD</h2>
+            <p>STUDENT PORTAL • OFFICIAL DIGITAL ID</p>
+          </div>
+          <div class="seal"><i class="bi bi-patch-check-fill"></i></div>
+        </div>
+
+        <div class="front-content">
+          <div class="photo-column">
+            <div class="photo">
+              {% if student[4] %}
+              <img src="{{ url_for('static', filename='uploads/' ~ student[4]) }}" alt="Student photo">
+              {% else %}
+              <i class="bi bi-person-fill"></i>
+              {% endif %}
+            </div>
+            <span class="photo-label">STUDENT PHOTO</span>
+            <span class="status">{{ student[6] or 'Active' }}</span>
+          </div>
+
+          <div>
+            <span class="label">STUDENT NAME</span>
+            <h2 class="student-name">{{ student[2] }}</h2>
+
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="label">STUDENT ID</span>
+                <strong class="student-number">{{ student[1] }}</strong>
+              </div>
+              <div class="info-item">
+                <span class="label">COURSE / PROGRAM</span>
+                <strong>{{ student[3] }}</strong>
+              </div>
+              <div class="info-item">
+                <span class="label">DATE OF BIRTH</span>
+                <strong>{{ student[7] or '—' }}</strong>
+              </div>
+              <div class="info-item">
+                <span class="label">BLOOD GROUP</span>
+                <strong>{{ student[10] or '—' }}</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span class="footer-note">
+            <i class="bi bi-shield-check"></i>
+            VALID STUDENT IDENTIFICATION
+          </span>
+          <span class="signature">AUTHORIZED SIGNATURE</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- BACK SIDE -->
+    <section class="side-wrapper">
+      <h2 class="side-title">02 / BACK SIDE</h2>
+
+      <article class="id-card back-card">
+        <div class="card-header">
+          <div class="school-icon"><i class="bi bi-mortarboard-fill"></i></div>
+          <div class="school-name">
+            <h2>STUDENT INFORMATION</h2>
+            <p>IDENTITY • CONTACT • VERIFICATION</p>
+          </div>
+          <div class="seal"><i class="bi bi-shield-lock-fill"></i></div>
+        </div>
+
+        <div class="back-banner">STUDENT DETAILS &amp; VERIFICATION</div>
+
+        <div class="back-content">
+          <div class="back-details">
+            <div class="back-row">
+              <span class="label">CONTACT NUMBER</span>
+              <strong>{{ student[8] or 'Not provided' }}</strong>
+            </div>
+            <div class="back-row">
+              <span class="label">EMAIL ADDRESS</span>
+              <strong>{{ student[9] or 'Not provided' }}</strong>
+            </div>
+            <div class="back-row">
+              <span class="label">ADDRESS</span>
+              <strong>{{ student[11] or 'Not provided' }}</strong>
+            </div>
+          </div>
+
+          <div class="qr-panel">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&amp;data={{ (request.host_url.rstrip('/') ~ url_for('verify', sid=student[1])) | urlencode }}"
+              alt="Verify Student ID">
+            <small>SCAN TO VERIFY</small>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <strong>IMPORTANT</strong><br>
+          This card belongs to the student named on the front.
+          If found, please return it to the issuing institution.
+          Do not use another person's identity card.
+        </div>
+
+        <div class="back-footer">
+          PLEASE KEEP THIS CARD SAFE • STUDENT ID: {{ student[1] }}
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <div class="actions">
+    <button class="btn" type="button" onclick="window.print()">
+      <i class="bi bi-printer-fill"></i> Print Both Sides
+    </button>
+    <a class="btn light" href="/admin">
+      <i class="bi bi-grid"></i> Dashboard
+    </a>
+  </div>
+</body>
+
+</html>

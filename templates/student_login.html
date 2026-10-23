@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login | Student ID System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student_login.css') }}">
+</head>
+<body>
+    <main class="login-shell">
+        <section class="welcome-panel">
+            <a class="brand" href="/" aria-label="Student ID System home">
+                <span class="brand-mark"><i class="bi bi-mortarboard-fill"></i></span>
+                <span>Student ID <strong>System</strong></span>
+            </a>
+
+            <div class="welcome-copy">
+                <span class="eyebrow"><i class="bi bi-shield-check"></i> STUDENT PORTAL</span>
+                <h1>Your campus identity,<br><span>all in one place.</span></h1>
+                <p>Sign in securely to view your student profile, access your digital ID card, and verify your registered details.</p>
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <span class="feature-icon"><i class="bi bi-person-vcard"></i></span>
+                    <div><strong>Digital student ID</strong><small>Access your ID card whenever you need it.</small></div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon"><i class="bi bi-qr-code-scan"></i></span>
+                    <div><strong>Easy verification</strong><small>Your identity details in one convenient portal.</small></div>
+                </div>
+            </div>
+            <div class="panel-footer"><i class="bi bi-lock-fill"></i> Your student information is protected.</div>
+            <div class="decor decor-one"></div>
+            <div class="decor decor-two"></div>
+        </section>
+
+        <section class="form-panel">
+            <div class="login-card">
+                <div class="mobile-brand">
+                    <span class="brand-mark"><i class="bi bi-mortarboard-fill"></i></span>
+                    <span>Student ID <strong>System</strong></span>
+                </div>
+
+                <div class="form-heading">
+                    <span class="form-icon"><i class="bi bi-person-lock"></i></span>
+                    <p class="overline">WELCOME BACK</p>
+                    <h2>Student Login</h2>
+                    <p class="subtitle">Enter your registered details to continue.</p>
+                </div>
+
+                {% if error %}
+                <div class="error-message" role="alert">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <span>{{ error }}</span>
+                </div>
+                {% endif %}
+
+                <form method="POST" action="{{ url_for('student_login') }}">
+                    <div class="field-group">
+                        <label for="student_id">Student ID</label>
+                        <div class="input-wrap">
+                            <i class="bi bi-person-vcard input-icon"></i>
+                            <input id="student_id" type="text" name="student_id"
+                                   placeholder="Enter your Student ID" autocomplete="username"
+                                   value="{{ request.form.get('student_id', '') }}" required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="dob">Date of Birth</label>
+                        <div class="input-wrap">
+                            <i class="bi bi-calendar3 input-icon"></i>
+                            <input id="dob" type="date" name="dob" autocomplete="bday" required>
+                        </div>
+                        <small class="field-help">Use the date of birth saved during registration.</small>
+                    </div>
+
+                    <button class="login-button" type="submit">
+                        Sign In <i class="bi bi-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="security-note">
+                    <i class="bi bi-shield-lock"></i>
+                    <span>Only active student accounts can sign in.</span>
+                </div>
+
+                <div class="form-bottom">
+                    <a href="{{ url_for('login') }}"><i class="bi bi-arrow-left"></i> Admin login</a>
+                    <span>Need help? Contact your administrator.</span>
+                </div>
+            </div>
+            <p class="copyright">© Student ID System · Student Portal</p>
+        </section>
+    </main>
+</body>
+</html>
