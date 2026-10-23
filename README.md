@@ -1,18 +1,16 @@
 # 🎓 CampusID — Smart Student Identity & Management System
 
-\<p align="center">
-&#x20; \<strong>A smarter way to manage student identities.\</strong>
-&#x20; \<br>
-&#x20; Digital ID Cards • QR Code Verification • Student Management • PDF Downloads
-\</p>
+### A smarter way to manage student identities.
 
-\<p align="center">
-&#x20; \<img src="[https://img.shields.io/badge/Python-3.x-blue?logo=python](https://img.shields.io/badge/Python-3.x-blue?logo=python)" alt="Python">
-&#x20; \<img src="[https://img.shields.io/badge/Flask-Web%20Framework-black?logo=flask](https://img.shields.io/badge/Flask-Web%20Framework-black?logo=flask)" alt="Flask">
-&#x20; \<img src="[https://img.shields.io/badge/SQLite-Database-003B57?logo=sqlite](https://img.shields.io/badge/SQLite-Database-003B57?logo=sqlite)" alt="SQLite">
-&#x20; \<img src="[https://img.shields.io/badge/Bootstrap-5.3-7952B3?logo=bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?logo=bootstrap)" alt="Bootstrap">
-&#x20; \<img src="[https://img.shields.io/badge/Status-Student%20Project-orange](https://img.shields.io/badge/Status-Student%20Project-orange)" alt="Project status">
-\</p>
+**Digital ID Cards** • **QR Code Verification** • **Student Management** • **PDF Downloads**
+
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black?logo=flask)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?logo=sqlite)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?logo=bootstrap)
+
+---
+
 
 ---
 
@@ -266,6 +264,7 @@ This project provides practical experience with:
 BCA Graduate | MCA Student | Aspiring Software Developer
 
 GitHub: [@hetmochi05](https://github.com/hetmochi05)
+Linkedin: [@hetmochi05]()
 
 ## ⭐ Support
 
